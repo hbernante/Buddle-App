@@ -20,7 +20,7 @@ Entity Framework Core Design:
 
 Database Migration Commands:
 Initialization:
-"dotnet ef migrations add init"
+"dotnet ef migrations add InitialMigration"
 
 Update Database:
 "dotnet ef database update"
