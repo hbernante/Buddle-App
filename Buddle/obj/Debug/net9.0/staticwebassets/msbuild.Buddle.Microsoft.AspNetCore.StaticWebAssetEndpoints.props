@@ -12,6 +12,18 @@
       <EndpointProperties><![CDATA[[{"Name":"fingerprint","Value":"ndz7d1e8ua"},{"Name":"integrity","Value":"sha256-JaAXfcfgYobf/984m0F06ZxNtGj2vNbkOO7c8M/HrT8="},{"Name":"label","Value":"_content/Buddle/Buddle.bundle.scp.css"}]]]></EndpointProperties>
       <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"max-age=31536000, immutable"},{"Name":"Content-Length","Value":"1124"},{"Name":"Content-Type","Value":"text/css"},{"Name":"ETag","Value":"\u0022JaAXfcfgYobf/984m0F06ZxNtGj2vNbkOO7c8M/HrT8=\u0022"},{"Name":"Last-Modified","Value":"Fri, 10 Jan 2025 01:50:50 GMT"}]]]></ResponseHeaders>
     </StaticWebAssetEndpoint>
+    <StaticWebAssetEndpoint Include="_content/Buddle/css/account.4zqax494sv.css">
+      <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\css\account.css'))</AssetFile>
+      <Selectors><![CDATA[[]]]></Selectors>
+      <EndpointProperties><![CDATA[[{"Name":"fingerprint","Value":"4zqax494sv"},{"Name":"integrity","Value":"sha256-EIio3lR/AsFAHoR05ZHvbsmKL6RtZLblpyTqJcVSA3c="},{"Name":"label","Value":"_content/Buddle/css/account.css"}]]]></EndpointProperties>
+      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"max-age=31536000, immutable"},{"Name":"Content-Length","Value":"500"},{"Name":"Content-Type","Value":"text/css"},{"Name":"ETag","Value":"\u0022EIio3lR/AsFAHoR05ZHvbsmKL6RtZLblpyTqJcVSA3c=\u0022"},{"Name":"Last-Modified","Value":"Fri, 10 Jan 2025 03:22:56 GMT"}]]]></ResponseHeaders>
+    </StaticWebAssetEndpoint>
+    <StaticWebAssetEndpoint Include="_content/Buddle/css/account.css">
+      <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\css\account.css'))</AssetFile>
+      <Selectors><![CDATA[[]]]></Selectors>
+      <EndpointProperties><![CDATA[[{"Name":"integrity","Value":"sha256-EIio3lR/AsFAHoR05ZHvbsmKL6RtZLblpyTqJcVSA3c="}]]]></EndpointProperties>
+      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"no-cache"},{"Name":"Content-Length","Value":"500"},{"Name":"Content-Type","Value":"text/css"},{"Name":"ETag","Value":"\u0022EIio3lR/AsFAHoR05ZHvbsmKL6RtZLblpyTqJcVSA3c=\u0022"},{"Name":"Last-Modified","Value":"Fri, 10 Jan 2025 03:22:56 GMT"}]]]></ResponseHeaders>
+    </StaticWebAssetEndpoint>
     <StaticWebAssetEndpoint Include="_content/Buddle/css/site.b9sayid5wm.css">
       <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\css\site.css'))</AssetFile>
       <Selectors><![CDATA[[]]]></Selectors>
