@@ -1,81 +1,160 @@
+using Buddle.Models;
+using Buddle.Models.ViewModels;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Buddle.Controllers;
 
 public class AccountController : Controller
 {
+
+    private readonly SignInManager<User> signInManager;
+    private readonly UserManager<User> userManager;
+
+    public AccountController(SignInManager<User> signInManager, UserManager<User> userManager)
+    {
+        this.signInManager = signInManager;
+        this.userManager = userManager;
+    }
+
     public IActionResult Login()
     {
         return View();
     }
-    
+
+    [HttpPost]
+    public async Task<IActionResult> Login(LoginViewModel model)
+    {
+        if (ModelState.IsValid)
+        {
+            var result = await signInManager.PasswordSignInAsync(model.Email, model.Password, model.RememberMe, false);
+
+            if (result.Succeeded)
+            {
+                return RedirectToAction("Index", "Home");
+            }
+            else
+            {
+                ModelState.AddModelError("", "Email or password is incorrect.");
+                return View(model);
+            }
+        }
+        return View(model);
+    }
+
     public IActionResult Register()
     {
         return View();
     }
 
-    public IActionResult ForgotPassword()
+    [HttpPost]
+    public async Task<IActionResult> Register(RegisterViewModel model)
+    {
+        if (ModelState.IsValid)
+        {
+            User users = new User
+            {
+                FullName = model.FirstName + " " + model.LastName,
+                UserName = model.Email,
+                Email = model.Email,
+            };
+
+            var result = await userManager.CreateAsync(users, model.Password);
+
+            if (result.Succeeded)
+            {
+                return RedirectToAction("Login", "Account");
+            }
+            else
+            {
+                foreach (var error in result.Errors)
+                {
+                    ModelState.AddModelError("", error.Description);
+                }
+
+                return View(model);
+            }
+        }
+        return View(model);
+    }
+
+
+    public IActionResult VerifyEmail()
     {
         return View();
     }
 
-    public IActionResult ResetPassword()
+    [HttpPost]
+    public async Task<IActionResult> VerifyEmail(VerifyEmailViewModel model)
     {
-        return View();
+        if (ModelState.IsValid)
+        {
+            var user = await userManager.FindByNameAsync(model.Email);
+
+            if (user == null)
+            {
+                ModelState.AddModelError("", "Something is wrong!");
+                return View(model);
+            }
+            else
+            {
+                return RedirectToAction("ChangePassword", "Account", new { username = user.UserName });
+            }
+        }
+        return View(model);
     }
 
-    public IActionResult ChangePassword()
+    public IActionResult ChangePassword(string username)
     {
-        return View();
+        if (string.IsNullOrEmpty(username))
+        {
+            return RedirectToAction("VerifyEmail", "Account");
+        }
+        return View(new ChangePasswordViewModel { Email = username });
     }
 
-    public IActionResult Profile()
+    [HttpPost]
+    public async Task<IActionResult> ChangePassword(ChangePasswordViewModel model)
     {
-        return View();
+        if (ModelState.IsValid)
+        {
+            var user = await userManager.FindByNameAsync(model.Email);
+            if (user != null)
+            {
+                var result = await userManager.RemovePasswordAsync(user);
+                if (result.Succeeded)
+                {
+                    result = await userManager.AddPasswordAsync(user, model.NewPassword);
+                    return RedirectToAction("Login", "Account");
+                }
+                else
+                {
+
+                    foreach (var error in result.Errors)
+                    {
+                        ModelState.AddModelError("", error.Description);
+                    }
+
+                    return View(model);
+                }
+            }
+            else
+            {
+                ModelState.AddModelError("", "Email not found!");
+                return View(model);
+            }
+        }
+        else
+        {
+            ModelState.AddModelError("", "Something went wrong. try again.");
+            return View(model);
+        }
     }
 
-    public IActionResult UpdateProfile()
+    public async Task<IActionResult> Logout()
     {
-        return View();
-    }
-
-    public IActionResult UpdatePassword()
-    {
-        return View();
-    }
-
-    public IActionResult UpdateEmail()
-    {
-        return View();
-    }
-
-    public IActionResult UpdatePhoneNumber()
-    {
-        return View();
-    }
-
-    public IActionResult ConfirmEmail()
-    {
-        return View();
-    }
-
-    public IActionResult ConfirmPhoneNumber()
-    {
-        return View();
-    }
-
-    public IActionResult ConfirmAccount()
-    {
-        return View();
-    }
-
-    public IActionResult Lockout()
-    {
-        return View();
-    }
-
-    public IActionResult Logout()
-    {
-        return View();
+        await signInManager.SignOutAsync();
+        return RedirectToAction("Index", "Home");
     }
 }
+
