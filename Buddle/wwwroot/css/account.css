@@ -1,21 +1,59 @@
-.account-container {
-    background-image: url('../images/account-bg.jpg');
-    background-size: cover;
-    background-position: center;
-    background-repeat: repeat-y;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    min-height: 100vh;
-    padding: 2rem 0;
+body {
+    font-family: 'Inter', sans-serif;
 }
 
-.account-box {
-    background-color: white;
-    padding: 30px;
-    border-radius: 10px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
-    max-width: 500px;
-    width: 100%;
-    opacity: .9;
+/* Left Side Styling */
+.left-side {
+    width: 30%; /* Wider to allow overlap */
+    background-color: #004c99; /* Blue background */
+    position: relative;
+    overflow: visible;
+    z-index: 2;
 }
+
+.decorative-image {
+    position: absolute;
+    right: -30%;
+    z-index: 3;
+    transform: translateX(30px); /* Adjust to overlap the right side smoothly */
+    width: 130%; /* Increase the width */
+    height: auto; /* Maintain aspect ratio */
+}
+
+/* Right Side Styling */
+.right-side {
+    width: 70%;
+    padding: 2rem;
+    position: relative;
+    z-index: 1; /* Higher than the left side to prevent layering issues */
+    border-top-left-radius: 100px; /* Rounded border at the top-left corner */
+    box-shadow: 0px -5px 10px rgba(0, 0, 0, 0.1); /* Optional shadow for better separation */
+}
+
+.form-control {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.form-control:focus {
+    box-shadow: 0 0 8px rgba(0, 123, 255, 0.6); /* Optional: Adds focus effect with a blue shadow */
+}
+
+
+/* General Adjustments */
+.d-flex {
+    display: flex;
+}
+.overflow-hidden {
+    overflow: hidden;
+}
+
+.validation-summary ul {
+    list-style: none;
+    padding: 0;
+}
+
+.validation-summary ul li {
+    display: inline;
+}
+
+

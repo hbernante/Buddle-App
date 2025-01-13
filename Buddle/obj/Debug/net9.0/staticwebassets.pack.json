@@ -17,6 +17,26 @@
       "PackagePath": "staticwebassets\\favicon.ico"
     },
     {
+      "Id": "C:\\Users\\HanzelBernante\\Desktop\\ASP_BUDDLE\\Buddle-App\\Buddle\\wwwroot\\images\\buddle_logo.svg",
+      "PackagePath": "staticwebassets\\images\\buddle_logo.svg"
+    },
+    {
+      "Id": "C:\\Users\\HanzelBernante\\Desktop\\ASP_BUDDLE\\Buddle-App\\Buddle\\wwwroot\\images\\google.svg",
+      "PackagePath": "staticwebassets\\images\\google.svg"
+    },
+    {
+      "Id": "C:\\Users\\HanzelBernante\\Desktop\\ASP_BUDDLE\\Buddle-App\\Buddle\\wwwroot\\images\\microsoft.svg",
+      "PackagePath": "staticwebassets\\images\\microsoft.svg"
+    },
+    {
+      "Id": "C:\\Users\\HanzelBernante\\Desktop\\ASP_BUDDLE\\Buddle-App\\Buddle\\wwwroot\\images\\sphere.png",
+      "PackagePath": "staticwebassets\\images\\sphere.png"
+    },
+    {
+      "Id": "C:\\Users\\HanzelBernante\\Desktop\\ASP_BUDDLE\\Buddle-App\\Buddle\\wwwroot\\images\\trilogo.svg",
+      "PackagePath": "staticwebassets\\images\\trilogo.svg"
+    },
+    {
       "Id": "C:\\Users\\HanzelBernante\\Desktop\\ASP_BUDDLE\\Buddle-App\\Buddle\\wwwroot\\js\\site.js",
       "PackagePath": "staticwebassets\\js\\site.js"
     },
