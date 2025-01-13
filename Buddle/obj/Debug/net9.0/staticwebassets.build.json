@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "7PwbHoJo3G+llzmdnNORz07yScSysJNyXfnmE8zeQy0=",
+  "Hash": "zmPJbFgJ68+RghSN6F95YJOVadDQmq8xWqSPg9Vl/AU=",
   "Source": "Buddle",
   "BasePath": "_content/Buddle",
   "Mode": "Default",
@@ -164,12 +164,12 @@
       "OriginalItemSpec": "C:\\Users\\HanzelBernante\\Desktop\\ASP_BUDDLE\\Buddle-App\\Buddle\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.js.map"
     },
     {
-      "Identity": "C:\\Users\\HanzelBernante\\Desktop\\ASP_BUDDLE\\Buddle-App\\Buddle\\obj\\Debug\\net9.0\\compressed\\35tatujy3d-8qjneqju1a.gz",
+      "Identity": "C:\\Users\\HanzelBernante\\Desktop\\ASP_BUDDLE\\Buddle-App\\Buddle\\obj\\Debug\\net9.0\\compressed\\35tatujy3d-tskjorbss9.gz",
       "SourceId": "Buddle",
       "SourceType": "Discovered",
       "ContentRoot": "C:\\Users\\HanzelBernante\\Desktop\\ASP_BUDDLE\\Buddle-App\\Buddle\\obj\\Debug\\net9.0\\compressed\\",
       "BasePath": "_content/Buddle",
-      "RelativePath": "css/account#[.{fingerprint=8qjneqju1a}]?.css.gz",
+      "RelativePath": "css/account#[.{fingerprint=tskjorbss9}]?.css.gz",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Alternative",
@@ -178,8 +178,8 @@
       "RelatedAsset": "C:\\Users\\HanzelBernante\\Desktop\\ASP_BUDDLE\\Buddle-App\\Buddle\\wwwroot\\css\\account.css",
       "AssetTraitName": "Content-Encoding",
       "AssetTraitValue": "gzip",
-      "Fingerprint": "vclo055jmi",
-      "Integrity": "H8Z+i1p9NRopvkmOXxDC3+/Vo+1Xm8wM1bdeSp5lI1M=",
+      "Fingerprint": "nat2qhwcus",
+      "Integrity": "zz6MKKt5qjIiLSXu0IKZNQEqL0Pl09mqUy5k2lHzf4I=",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "C:\\Users\\HanzelBernante\\Desktop\\ASP_BUDDLE\\Buddle-App\\Buddle\\wwwroot\\css\\account.css"
@@ -1522,8 +1522,8 @@
       "RelatedAsset": "",
       "AssetTraitName": "",
       "AssetTraitValue": "",
-      "Fingerprint": "8qjneqju1a",
-      "Integrity": "YBaBTDA42GbZT7bjNMSD6ukBmOfi9JafTlTqp9fBfyk=",
+      "Fingerprint": "tskjorbss9",
+      "Integrity": "8/smNcxOpwbt6mxze4bQelrqkWBsC+q9B3oPiuu90nk=",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\css\\account.css"
@@ -3555,13 +3555,13 @@
       ]
     },
     {
-      "Route": "css/account.8qjneqju1a.css",
-      "AssetFile": "C:\\Users\\HanzelBernante\\Desktop\\ASP_BUDDLE\\Buddle-App\\Buddle\\obj\\Debug\\net9.0\\compressed\\35tatujy3d-8qjneqju1a.gz",
+      "Route": "css/account.css",
+      "AssetFile": "C:\\Users\\HanzelBernante\\Desktop\\ASP_BUDDLE\\Buddle-App\\Buddle\\obj\\Debug\\net9.0\\compressed\\35tatujy3d-tskjorbss9.gz",
       "Selectors": [
         {
           "Name": "Content-Encoding",
           "Value": "gzip",
-          "Quality": "0.001587301587"
+          "Quality": "0.001390820584"
         }
       ],
       "ResponseHeaders": [
@@ -3571,19 +3571,19 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "629"
+          "Value": "718"
         },
         {
           "Name": "ETag",
-          "Value": "\"H8Z+i1p9NRopvkmOXxDC3+/Vo+1Xm8wM1bdeSp5lI1M=\""
+          "Value": "\"zz6MKKt5qjIiLSXu0IKZNQEqL0Pl09mqUy5k2lHzf4I=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Mon, 13 Jan 2025 05:33:11 GMT"
+          "Value": "Mon, 13 Jan 2025 05:42:59 GMT"
         },
         {
           "Name": "Cache-Control",
-          "Value": "max-age=31536000, immutable"
+          "Value": "no-cache"
         },
         {
           "Name": "Content-Encoding",
@@ -3599,26 +3599,18 @@
         },
         {
           "Name": "ETag",
-          "Value": "W/\"YBaBTDA42GbZT7bjNMSD6ukBmOfi9JafTlTqp9fBfyk=\""
+          "Value": "W/\"8/smNcxOpwbt6mxze4bQelrqkWBsC+q9B3oPiuu90nk=\""
         }
       ],
       "EndpointProperties": [
         {
-          "Name": "fingerprint",
-          "Value": "8qjneqju1a"
-        },
-        {
-          "Name": "label",
-          "Value": "css/account.css"
-        },
-        {
           "Name": "integrity",
-          "Value": "sha256-YBaBTDA42GbZT7bjNMSD6ukBmOfi9JafTlTqp9fBfyk="
+          "Value": "sha256-8/smNcxOpwbt6mxze4bQelrqkWBsC+q9B3oPiuu90nk="
         }
       ]
     },
     {
-      "Route": "css/account.8qjneqju1a.css",
+      "Route": "css/account.css",
       "AssetFile": "C:\\Users\\HanzelBernante\\Desktop\\ASP_BUDDLE\\Buddle-App\\Buddle\\wwwroot\\css\\account.css",
       "Selectors": [],
       "ResponseHeaders": [
@@ -3628,7 +3620,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "1318"
+          "Value": "2375"
         },
         {
           "Name": "Content-Type",
@@ -3636,11 +3628,156 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"YBaBTDA42GbZT7bjNMSD6ukBmOfi9JafTlTqp9fBfyk=\""
+          "Value": "\"8/smNcxOpwbt6mxze4bQelrqkWBsC+q9B3oPiuu90nk=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Mon, 13 Jan 2025 05:33:11 GMT"
+          "Value": "Mon, 13 Jan 2025 05:42:59 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-8/smNcxOpwbt6mxze4bQelrqkWBsC+q9B3oPiuu90nk="
+        }
+      ]
+    },
+    {
+      "Route": "css/account.css.gz",
+      "AssetFile": "C:\\Users\\HanzelBernante\\Desktop\\ASP_BUDDLE\\Buddle-App\\Buddle\\obj\\Debug\\net9.0\\compressed\\35tatujy3d-tskjorbss9.gz",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "718"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/css"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"zz6MKKt5qjIiLSXu0IKZNQEqL0Pl09mqUy5k2lHzf4I=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Mon, 13 Jan 2025 05:42:59 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        },
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip"
+        },
+        {
+          "Name": "Vary",
+          "Value": "Content-Encoding"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-zz6MKKt5qjIiLSXu0IKZNQEqL0Pl09mqUy5k2lHzf4I="
+        }
+      ]
+    },
+    {
+      "Route": "css/account.tskjorbss9.css",
+      "AssetFile": "C:\\Users\\HanzelBernante\\Desktop\\ASP_BUDDLE\\Buddle-App\\Buddle\\obj\\Debug\\net9.0\\compressed\\35tatujy3d-tskjorbss9.gz",
+      "Selectors": [
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip",
+          "Quality": "0.001390820584"
+        }
+      ],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "718"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"zz6MKKt5qjIiLSXu0IKZNQEqL0Pl09mqUy5k2lHzf4I=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Mon, 13 Jan 2025 05:42:59 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        },
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip"
+        },
+        {
+          "Name": "Vary",
+          "Value": "Content-Encoding"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/css"
+        },
+        {
+          "Name": "ETag",
+          "Value": "W/\"8/smNcxOpwbt6mxze4bQelrqkWBsC+q9B3oPiuu90nk=\""
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "tskjorbss9"
+        },
+        {
+          "Name": "label",
+          "Value": "css/account.css"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-8/smNcxOpwbt6mxze4bQelrqkWBsC+q9B3oPiuu90nk="
+        }
+      ]
+    },
+    {
+      "Route": "css/account.tskjorbss9.css",
+      "AssetFile": "C:\\Users\\HanzelBernante\\Desktop\\ASP_BUDDLE\\Buddle-App\\Buddle\\wwwroot\\css\\account.css",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "2375"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/css"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"8/smNcxOpwbt6mxze4bQelrqkWBsC+q9B3oPiuu90nk=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Mon, 13 Jan 2025 05:42:59 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -3650,7 +3787,7 @@
       "EndpointProperties": [
         {
           "Name": "fingerprint",
-          "Value": "8qjneqju1a"
+          "Value": "tskjorbss9"
         },
         {
           "Name": "label",
@@ -3658,13 +3795,13 @@
         },
         {
           "Name": "integrity",
-          "Value": "sha256-YBaBTDA42GbZT7bjNMSD6ukBmOfi9JafTlTqp9fBfyk="
+          "Value": "sha256-8/smNcxOpwbt6mxze4bQelrqkWBsC+q9B3oPiuu90nk="
         }
       ]
     },
     {
-      "Route": "css/account.8qjneqju1a.css.gz",
-      "AssetFile": "C:\\Users\\HanzelBernante\\Desktop\\ASP_BUDDLE\\Buddle-App\\Buddle\\obj\\Debug\\net9.0\\compressed\\35tatujy3d-8qjneqju1a.gz",
+      "Route": "css/account.tskjorbss9.css.gz",
+      "AssetFile": "C:\\Users\\HanzelBernante\\Desktop\\ASP_BUDDLE\\Buddle-App\\Buddle\\obj\\Debug\\net9.0\\compressed\\35tatujy3d-tskjorbss9.gz",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -3673,7 +3810,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "629"
+          "Value": "718"
         },
         {
           "Name": "Content-Type",
@@ -3681,11 +3818,11 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"H8Z+i1p9NRopvkmOXxDC3+/Vo+1Xm8wM1bdeSp5lI1M=\""
+          "Value": "\"zz6MKKt5qjIiLSXu0IKZNQEqL0Pl09mqUy5k2lHzf4I=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Mon, 13 Jan 2025 05:33:11 GMT"
+          "Value": "Mon, 13 Jan 2025 05:42:59 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -3703,7 +3840,7 @@
       "EndpointProperties": [
         {
           "Name": "fingerprint",
-          "Value": "8qjneqju1a"
+          "Value": "tskjorbss9"
         },
         {
           "Name": "label",
@@ -3711,144 +3848,7 @@
         },
         {
           "Name": "integrity",
-          "Value": "sha256-H8Z+i1p9NRopvkmOXxDC3+/Vo+1Xm8wM1bdeSp5lI1M="
-        }
-      ]
-    },
-    {
-      "Route": "css/account.css",
-      "AssetFile": "C:\\Users\\HanzelBernante\\Desktop\\ASP_BUDDLE\\Buddle-App\\Buddle\\obj\\Debug\\net9.0\\compressed\\35tatujy3d-8qjneqju1a.gz",
-      "Selectors": [
-        {
-          "Name": "Content-Encoding",
-          "Value": "gzip",
-          "Quality": "0.001587301587"
-        }
-      ],
-      "ResponseHeaders": [
-        {
-          "Name": "Accept-Ranges",
-          "Value": "bytes"
-        },
-        {
-          "Name": "Content-Length",
-          "Value": "629"
-        },
-        {
-          "Name": "ETag",
-          "Value": "\"H8Z+i1p9NRopvkmOXxDC3+/Vo+1Xm8wM1bdeSp5lI1M=\""
-        },
-        {
-          "Name": "Last-Modified",
-          "Value": "Mon, 13 Jan 2025 05:33:11 GMT"
-        },
-        {
-          "Name": "Cache-Control",
-          "Value": "no-cache"
-        },
-        {
-          "Name": "Content-Encoding",
-          "Value": "gzip"
-        },
-        {
-          "Name": "Vary",
-          "Value": "Content-Encoding"
-        },
-        {
-          "Name": "Content-Type",
-          "Value": "text/css"
-        },
-        {
-          "Name": "ETag",
-          "Value": "W/\"YBaBTDA42GbZT7bjNMSD6ukBmOfi9JafTlTqp9fBfyk=\""
-        }
-      ],
-      "EndpointProperties": [
-        {
-          "Name": "integrity",
-          "Value": "sha256-YBaBTDA42GbZT7bjNMSD6ukBmOfi9JafTlTqp9fBfyk="
-        }
-      ]
-    },
-    {
-      "Route": "css/account.css",
-      "AssetFile": "C:\\Users\\HanzelBernante\\Desktop\\ASP_BUDDLE\\Buddle-App\\Buddle\\wwwroot\\css\\account.css",
-      "Selectors": [],
-      "ResponseHeaders": [
-        {
-          "Name": "Accept-Ranges",
-          "Value": "bytes"
-        },
-        {
-          "Name": "Content-Length",
-          "Value": "1318"
-        },
-        {
-          "Name": "Content-Type",
-          "Value": "text/css"
-        },
-        {
-          "Name": "ETag",
-          "Value": "\"YBaBTDA42GbZT7bjNMSD6ukBmOfi9JafTlTqp9fBfyk=\""
-        },
-        {
-          "Name": "Last-Modified",
-          "Value": "Mon, 13 Jan 2025 05:33:11 GMT"
-        },
-        {
-          "Name": "Cache-Control",
-          "Value": "no-cache"
-        }
-      ],
-      "EndpointProperties": [
-        {
-          "Name": "integrity",
-          "Value": "sha256-YBaBTDA42GbZT7bjNMSD6ukBmOfi9JafTlTqp9fBfyk="
-        }
-      ]
-    },
-    {
-      "Route": "css/account.css.gz",
-      "AssetFile": "C:\\Users\\HanzelBernante\\Desktop\\ASP_BUDDLE\\Buddle-App\\Buddle\\obj\\Debug\\net9.0\\compressed\\35tatujy3d-8qjneqju1a.gz",
-      "Selectors": [],
-      "ResponseHeaders": [
-        {
-          "Name": "Accept-Ranges",
-          "Value": "bytes"
-        },
-        {
-          "Name": "Content-Length",
-          "Value": "629"
-        },
-        {
-          "Name": "Content-Type",
-          "Value": "text/css"
-        },
-        {
-          "Name": "ETag",
-          "Value": "\"H8Z+i1p9NRopvkmOXxDC3+/Vo+1Xm8wM1bdeSp5lI1M=\""
-        },
-        {
-          "Name": "Last-Modified",
-          "Value": "Mon, 13 Jan 2025 05:33:11 GMT"
-        },
-        {
-          "Name": "Cache-Control",
-          "Value": "no-cache"
-        },
-        {
-          "Name": "Content-Encoding",
-          "Value": "gzip"
-        },
-        {
-          "Name": "Vary",
-          "Value": "Content-Encoding"
-        }
-      ],
-      "EndpointProperties": [
-        {
-          "Name": "integrity",
-          "Value": "sha256-H8Z+i1p9NRopvkmOXxDC3+/Vo+1Xm8wM1bdeSp5lI1M="
+          "Value": "sha256-zz6MKKt5qjIiLSXu0IKZNQEqL0Pl09mqUy5k2lHzf4I="
         }
       ]
     },
