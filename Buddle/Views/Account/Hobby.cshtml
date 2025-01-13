@@ -1,0 +1,103 @@
+﻿@using Buddle.Models.ViewModels
+@model HobbyViewModel
+
+@{
+    ViewData["Title"] = "Personal Information";
+    Layout = "~/Views/Shared/_AccountLayout.cshtml";
+}
+
+<div class="d-flex vh-100 overflow-hidden">
+    <!-- Main Content -->
+    <div class="hobby-main-content flex-grow-1 bg-white d-flex align-items-center justify-content-center">
+        <div class="hobby-container text-center">
+            <img src="/images/buddle_logo.svg" alt="Logo" class="mb-4" style="width: 100px;" />
+            
+            <!-- Welcome Message -->
+            <h2 class="mb-4">Welcome, @Model.Email! Tell Us About Yourself!</h2>
+            
+            <form asp-action="Hobby" method="post">
+                <input type="hidden" asp-for="Email" /> <!-- Preserve email across form submissions -->
+                <div asp-validation-summary="ModelOnly" class="text-danger validation-summary"></div>
+
+                <!-- Row 1: Birthday -->
+                <div class="row mb-3">
+                    <div class="col-12 mb-2">
+                        <label asp-for="Birthday" class="form-label">Birthday</label>
+                        <input asp-for="Birthday" type="date" class="form-control" min="1960-01-01" max="@DateTime.Now.ToString("yyyy-MM-dd")" />
+                        <span asp-validation-for="Birthday" class="text-danger"></span>
+                    </div>
+                </div>
+
+                <!-- Row 2: Gender -->
+                <div class="row mb-3">
+                    <div class="col-12 mb-2">
+                        <label asp-for="Gender" class="form-label">Gender</label>
+                        <select asp-for="Gender" class="form-control">
+                            <option value="">Select Gender</option>
+                            <option value="Male">Male</option>
+                            <option value="Female">Female</option>
+                            <option value="Non-binary">Non-binary</option>
+                            <option value="Other">Other</option>
+                            <option value="Prefer not to say">Prefer not to say</option>
+                        </select>
+                        <span asp-validation-for="Gender" class="text-danger"></span>
+                    </div>
+                </div>
+
+                <!-- Row 3: Hobbies -->
+                <div class="row mb-3">
+                    <div class="col-12 mb-2">
+                        <label asp-for="Hobbies" class="form-label">Hobbies</label>
+                        <select multiple asp-for="Hobbies" class="form-control">
+                            <option value="Reading">Reading</option>
+                            <option value="Traveling">Traveling</option>
+                            <option value="Coding">Coding</option>
+                            <option value="Sports">Sports</option>
+                            <option value="Gaming">Gaming</option>
+                            <option value="Music">Music</option>
+                        </select>
+                        <small class="form-text text-muted">Hold Ctrl (Cmd on Mac) to select multiple hobbies or add custom hobbies below.</small>
+                        <textarea asp-for="Hobbies" class="form-control mt-2" placeholder="Enter custom hobbies separated by commas (e.g., Painting, Baking)"></textarea>
+                        <span asp-validation-for="Hobbies" class="text-danger"></span>
+                    </div>
+                </div>
+
+                <!-- Row 4: Latitude and Longitude -->
+                <div class="row mb-3">
+                    <div class="col-12 mb-2">
+                        <label asp-for="Latitude" class="form-label">Latitude</label>
+                        <input asp-for="Latitude" type="text" class="form-control" placeholder="Enter your latitude" />
+                        <span asp-validation-for="Latitude" class="text-danger"></span>
+                    </div>
+                </div>
+                <div class="row mb-3">
+                    <div class="col-12 mb-2">
+                        <label asp-for="Longitude" class="form-label">Longitude</label>
+                        <input asp-for="Longitude" type="text" class="form-control" placeholder="Enter your longitude" />
+                        <span asp-validation-for="Longitude" class="text-danger"></span>
+                    </div>
+                </div>
+
+                <!-- Submit Button -->
+                <div class="row mb-3">
+                    <div class="col-12">
+                        <button type="submit" class="btn btn-primary w-100">Save</button>
+                    </div>
+                </div>
+
+                <!-- Back Link -->
+                <div class="row mb-3">
+                    <div class="col-12">
+                        <a asp-controller="Account" asp-action="Register" class="text-decoration-none">Back to Register</a>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial.cshtml");
+    }
+}

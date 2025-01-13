@@ -56,14 +56,15 @@ public class AccountController : Controller
             {
                 FullName = model.FirstName + " " + model.LastName,
                 UserName = model.Email,
-                Email = model.Email,
+                Email = model.Email
             };
 
             var result = await userManager.CreateAsync(users, model.Password);
 
             if (result.Succeeded)
             {
-                return RedirectToAction("Login", "Account");
+                // Redirect to the Hobby page to collect additional information
+                return RedirectToAction("Hobby", new { email = model.Email });
             }
             else
             {
@@ -71,13 +72,76 @@ public class AccountController : Controller
                 {
                     ModelState.AddModelError("", error.Description);
                 }
-
-                return View(model);
             }
         }
-        return View(model);
+        return View();
     }
 
+    // GET: Hobby
+    public IActionResult Hobby(string email)
+    {
+        if (string.IsNullOrEmpty(email))
+        {
+            return RedirectToAction("Register", "Account");
+        }
+
+        var user = userManager.Users.FirstOrDefault(u => u.Email == email);
+        if (user != null)
+        {
+            var hobbyModel = new HobbyViewModel
+            {
+                Email = user.Email,
+            };
+            return View(hobbyModel);
+        }
+
+        return RedirectToAction("Register", "Account");
+    }
+
+    // POST: Hobby
+    [HttpPost]
+    public async Task<IActionResult> Hobby(HobbyViewModel model)
+    {
+        if (ModelState.IsValid)
+        {
+            var user = await userManager.FindByEmailAsync(model.Email);
+            if (user != null)
+            {
+                // Update user fields
+                user.Birthday = model.Birthday;
+                user.Gender = model.Gender;
+                user.Hobbies = model.Hobbies != null ? string.Join(", ", model.Hobbies) : null;
+                user.Latitude = model.Latitude;
+                user.Longitude = model.Longitude;
+
+                // Save changes to the database
+                var result = await userManager.UpdateAsync(user);
+
+                if (result.Succeeded)
+                {
+                    // Automatically sign in the user after updating the profile
+                    await signInManager.SignInAsync(user, isPersistent: false);
+
+                    // Redirect to the home page
+                    return RedirectToAction("Index", "Home");
+                }
+                else
+                {
+                    foreach (var error in result.Errors)
+                    {
+                        ModelState.AddModelError("", error.Description);
+                    }
+                }
+            }
+            else
+            {
+                ModelState.AddModelError("", "User not found.");
+            }
+        }
+
+        // Return to the view with the same model (including email) on validation failure
+        return View(model);
+    }
 
     public IActionResult VerifyEmail()
     {
