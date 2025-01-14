@@ -6,65 +6,84 @@
     Layout = "~/Views/Shared/_AccountLayout.cshtml";
 }
 
-<div class="d-flex vh-100 overflow-hidden">
-    <!-- Left Side -->
-    <div class="left-side flex-shrink-0 position-relative d-flex align-items-end justify-content-center">
-        <img src="/images/sphere.png" alt="Decorative Image" class="decorative-image" />
-    </div>
+<div style="background-color: #004c99;">
+    <div class="d-flex vh-100 overflow-hidden">
+        <!-- Left Side -->
+        <div class="left-side position-relative d-flex align-items-end justify-content-center" style="flex: 1;">
+            <img src="/images/sphere.png" alt="Decorative Image" class="decorative-image" />
+        </div>
 
-    <!-- Right Side -->
-    <div class="right-side flex-grow-1 bg-white d-flex align-items-center justify-content-center">
-        <div class="account-container text-center">
-            <img src="/images/buddle_logo.svg" alt="Logo" class="mb-4" style="width: 100px;" />
-            <h2 class="mb-4">Be part of the community.</h2>
-            <form asp-action="Login" method="post">
-                <div asp-validation-summary="ModelOnly" class="text-danger validation-summary"></div>
-                <div class="mb-3">
-                    <input asp-for="Email" class="form-control" placeholder="Email or Username" />
+        <!-- Right Side -->
+        <div class="right-side bg-white d-flex align-items-center justify-content-center mt-5" style="flex: 2;">
+            <div class="account-container text-center" style="max-width: 500px;">
+                <img src="/images/buddle_logo.svg" alt="Logo" class="mb-4" style="width: 100px;" />
+                <h2 class="mb-4">Be part of the community.</h2>
+                <form asp-action="Login" method="post">
+                    <div asp-validation-summary="ModelOnly" class="text-danger validation-summary"></div>
+
+                    <!-- Email -->
+                    <div class="mb-3">
+                        <input asp-for="Email" class="form-control" placeholder="Email or Username"
+                            style="height: 50px; font-size: 1.1rem;" />
+                        <div class="d-flex align-items-start mb-3 me-0">
+                            <span asp-validation-for="Email" class="text-danger"></span>
+                        </div>
+                    </div>
+
+                    <!-- Password -->
+                    <div class="mb-3">
+                        <input asp-for="Password" class="form-control" placeholder="Password"
+                            style="height: 50px; font-size: 1.1rem;" />
+                        <div class="d-flex align-items-start mb-3 me-0">
+                            <span asp-validation-for="Password" class="text-danger"></span>
+                        </div>
+                    </div>
+
+                    <!-- Forgot Password -->
+                    <div class="float-end mb-5">
+                        <a asp-controller="Account" asp-action="VerifyEmail" class="text-decoration-none">
+                            Forgot password?
+                        </a>
+                    </div>
+
+                    <!-- Remember Me -->
                     <div class="d-flex align-items-start mb-3 me-0">
-                        <span asp-validation-for="Email" class="text-danger"></span>
+                        <div class="form-check">
+                            <label class="form-check-label">
+                                <input asp-for="RememberMe" class="form-check-input" />
+                                @Html.DisplayNameFor(a => a.RememberMe)
+                            </label>
+                        </div>
                     </div>
-                </div>
-                <div class="mb-3">
-                    <input asp-for="Password" class="form-control" placeholder="Password" />
+
+                    <!-- Login Button -->
+                    <button type="submit" class="btn btn-primary w-100 mb-3" style="height: 50px; font-size: 1.1rem;">
+                        <i class="bi bi-box-arrow-in-right"></i> Login
+                    </button>
+
+                    <!-- Register Link -->
                     <div class="d-flex align-items-start mb-3 me-0">
-                        <span asp-validation-for="Password" class="text-danger"></span>
+                        <p>Don't have an account? <a asp-controller="Account" asp-action="Register"
+                                class="text-decoration-none">Register</a></p>
                     </div>
-                </div>
-                <div class="float-end mb-5">
-                    <a asp-controller="Account" asp-action="VerifyEmail" class="text-decoration-none">
-                        Forgot password?
-                    </a>
-                </div>
-                <div class="d-flex align-items-start mb-3 me-0">
-                    <div class="form-check">
-                        <label class="form-check-label">
-                            <input asp-for="RememberMe" class="form-check-input" />
-                            @Html.DisplayNameFor(a => a.RememberMe)
-                        </label>
+                </form>
+
+                <!-- Social Login -->
+                <div class="mt-3">
+                    <p>or login using these providers!</p>
+                    <div class="d-flex justify-content-center gap-3">
+                        <button class="btn btn-outline-secondary" style="height: 50px;">
+                            <img src="/images/google.svg" alt="Google" style="width: 20px;" />
+                        </button>
+                        <button class="btn btn-outline-secondary" style="height: 50px;">
+                            <img src="/images/microsoft.svg" alt="Microsoft" style="width: 20px;" />
+                        </button>
                     </div>
-                </div>
-                <button type="submit" class="btn btn-primary w-100 mb-3">
-                    <i class="bi bi-box-arrow-in-right"></i> Login
-                </button>
-                <div class="d-flex align-items-start mb-3 me-0">
-                    <p>Don't have an account? <a asp-controller="Account" asp-action="Register"
-                            class="text-decoration-none">Register</a></p>
-                </div>
-            </form>
-            <div class="mt-3">
-                <p>or login using these providers!</p>
-                <div class="d-flex justify-content-center gap-3">
-                    <button class="btn btn-outline-secondary">
-                        <img src="/images/google.svg" alt="Google" style="width: 20px;" />
-                    </button>
-                    <button class="btn btn-outline-secondary">
-                        <img src="/images/microsoft.svg" alt="Microsoft" style="width: 20px;" />
-                    </button>
                 </div>
             </div>
         </div>
     </div>
+</div>
 </div>
 
 @section Scripts {

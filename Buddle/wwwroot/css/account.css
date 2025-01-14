@@ -3,19 +3,18 @@ body {
     font-family: 'Inter', sans-serif;
 }
 
-/* Login Styling */
 
 /* Left Side Styling */
 .left-side {
     width: 30%; /* Wider to allow overlap */
-    background-color: #004c99; /* Blue background */
+    background-color: #004c99; /* Blue background 004c99 */
     position: relative;
     overflow: visible;
     z-index: 2;
 }
 
 .decorative-image {
-    position: absolute;
+    position: absolute; 
     right: -30%;
     z-index: 3;
     transform: translateX(30px); /* Adjust to overlap the right side smoothly */

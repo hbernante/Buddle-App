@@ -6,95 +6,93 @@
     Layout = "~/Views/Shared/_AccountLayout.cshtml";
 }
 
-<div class="d-flex vh-100 overflow-hidden">
-    <!-- Left Side -->
-    <div class="register-left-side flex-shrink-0 position-relative d-flex align-items-end justify-content-center">
-        <img src="/images/sphere.png" alt="Decorative Image" class="register-decorative-image" />
-    </div>
+<div style="background-color: #004c99;">
+    <div class="d-flex vh-100 overflow-hidden">
+        <!-- Left Side -->
+        <div class="register-left-side flex-shrink-0 position-relative d-flex align-items-end justify-content-center" style="flex: 1;">
+            <img src="/images/sphere.png" alt="Decorative Image" class="register-decorative-image" />
+        </div>
 
-    <!-- Right Side -->
-    <div class="register-right-side flex-grow-1 bg-white d-flex align-items-center justify-content-center">
-        <div class="register-account-container text-center">
-            <img src="/images/buddle_logo.svg" alt="Logo" class="mb-4" style="width: 100px;" />
-            <h2 class="mb-4">Create a Buddle Account!</h2>
-            <form asp-action="Register" method="post">
-                <div asp-validation-summary="ModelOnly" class="text-danger validation-summary"></div>
+        <!-- Right Side -->
+        <div class="register-right-side bg-white d-flex align-items-center justify-content-center mt-5" style="flex: 2;">
+            <div class="register-account-container text-center" style="max-width: 600px;">
+                <img src="/images/buddle_logo.svg" alt="Logo" class="mb-4" style="width: 100px;" />
+                <h2 class="mb-4">Create a Buddle Account!</h2>
+                <form asp-action="Register" method="post">
+                    <div asp-validation-summary="ModelOnly" class="text-danger validation-summary"></div>
 
-                <!-- Row 1: First Name and Last Name -->
-                <div class="row mb-3">
-                    <div class="col-md-6 mb-2">
-                        <input asp-for="FirstName" class="form-control" placeholder="First Name" />
-                        <div class="d-flex align-items-start me-0">
-                            <span asp-validation-for="FirstName" class="text-danger"></span>
+                    <!-- Row 1: First Name and Last Name -->
+                    <div class="row mb-3">
+                        <div class="col-md-6 mb-2">
+                            <input asp-for="FirstName" class="form-control" placeholder="First Name" style="height: 50px; font-size: 1.1rem;" />
+                            <div class="d-flex align-items-start me-0">
+                                <span asp-validation-for="FirstName" class="text-danger"></span>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <input asp-for="LastName" class="form-control" placeholder="Last Name" style="height: 50px; font-size: 1.1rem;" />
+                            <div class="d-flex align-items-start me-0">
+                                <span asp-validation-for="LastName" class="text-danger"></span>
+                            </div>
                         </div>
                     </div>
-                    <div class="col-md-6">
-                        <input asp-for="LastName" class="form-control" placeholder="Last Name" />
-                        <div class="d-flex align-items-start me-0">
-                            <span asp-validation-for="LastName" class="text-danger"></span>
+
+                    <!-- Row 2: Email -->
+                    <div class="row mb-3">
+                        <div class="col-12 mb-2">
+                            <input asp-for="Email" class="form-control" placeholder="Email" style="height: 50px; font-size: 1.1rem;" />
+                            <div class="d-flex align-items-start me-0">
+                                <span asp-validation-for="Email" class="text-danger"></span>
+                            </div>
                         </div>
                     </div>
-                </div>
 
-                <!-- Row 2: Email -->
-                <div class="row mb-3">
-                    <div class="col-12 mb-2">
-                        <input asp-for="Email" class="form-control" placeholder="Email" />
-                        <div class="d-flex align-items-start me-0">
-                            <span asp-validation-for="Email" class="text-danger"></span>
+                    <!-- Row 3: Password and Confirm Password -->
+                    <div class="row mb-3">
+                        <div class="col-md-6">
+                            <input asp-for="Password" class="form-control" placeholder="Password" style="height: 50px; font-size: 1.1rem;" />
+                            <div class="d-flex align-items-start me-0">
+                                <span asp-validation-for="Password" class="text-danger"></span>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <input asp-for="ConfirmPassword" class="form-control" placeholder="Confirm Password" style="height: 50px; font-size: 1.1rem;" />
+                            <div class="d-flex align-items-start me-0">
+                                <span asp-validation-for="ConfirmPassword" class="text-danger"></span>
+                            </div>
                         </div>
                     </div>
-                </div>
 
-                <!-- Row 3: Password and Confirm Password -->
-                <div class="row mb-3">
-                    <div class="col-md-6">
-                        <input asp-for="Password" class="form-control" placeholder="Password" />
-                        <div class="d-flex align-items-start me-0">
-                            <span asp-validation-for="Password" class="text-danger"></span>
+                    <!-- Row 4: Register Button and Social Buttons -->
+                    <div class="row mb-3">
+                        <div class="col-12 col-md-8 mb-2">
+                            <button type="submit" class="register-btn btn btn-primary w-100 mb-3" style="height: 50px; font-size: 1.1rem;">
+                                <i class="bi bi-person-plus"></i> Register
+                            </button>
+                        </div>
+                        <div class="col-6 col-md-2 mb-2">
+                            <button class="btn btn-outline-secondary w-100">
+                                <img src="/images/google.svg" alt="Google" style="width: 20px;" />
+                            </button>
+                        </div>
+                        <div class="col-6 col-md-2 mb-2">
+                            <button class="btn btn-outline-secondary w-100">
+                                <img src="/images/microsoft.svg" alt="Microsoft" style="width: 20px;" />
+                            </button>
                         </div>
                     </div>
-                    <div class="col-md-6">
-                        <input asp-for="ConfirmPassword" class="form-control" placeholder="Confirm Password" />
-                        <div class="d-flex align-items-start me-0">
-                            <span asp-validation-for="ConfirmPassword" class="text-danger"></span>
+
+                    <div class="row mb-3">
+                        <div class="col-12">
+                            <p>Already have an account? <a asp-controller="Account" asp-action="Login" class="text-decoration-none">Login</a></p>
                         </div>
                     </div>
-                </div>
-
-                <!-- Row 4: Register Button and Social Buttons -->
-                <div class="row mb-3">
-                    <!-- Register Button (80%) -->
-                    <div class="col-12 col-md-8 mb-2">
-                        <button type="submit" class="register-btn btn btn-primary w-100 mb-3">
-                            <i class="bi bi-person-plus"></i> Register
-                        </button>
-                    </div>
-
-                    <!-- Social Buttons (10% each) -->
-                    <div class="col-6 col-md-2 mb-2">
-                        <button class="btn btn-outline-secondary w-100">
-                            <img src="/images/google.svg" alt="Google" style="width: 20px;" />
-                        </button>
-                    </div>
-                    <div class="col-6 col-md-2 mb-2">
-                        <button class="btn btn-outline-secondary w-100">
-                            <img src="/images/microsoft.svg" alt="Microsoft" style="width: 20px;" />
-                        </button>
-                    </div>
-                </div>
-
-                <div class="row mb-3">
-                    <div class="col-12">
-                        <p>Already have an account? <a asp-controller="Account" asp-action="Login"
-                                class="text-decoration-none">Login</a></p>
-                    </div>
-                </div>
-            </form>
-
+                </form>
+            </div>
         </div>
     </div>
 </div>
+
 
 
 
