@@ -9,12 +9,22 @@
 <div style="background-color: #004c99;">
     <div class="d-flex vh-100 overflow-hidden">
         <!-- Left Side -->
-        <div class="register-left-side flex-shrink-0 position-relative d-flex align-items-end justify-content-center" style="flex: 1;">
+        <div class="register-left-side flex-shrink-0 position-relative d-flex align-items-end justify-content-center"
+            style="flex: 1;">
             <img src="/images/sphere.png" alt="Decorative Image" class="register-decorative-image" />
         </div>
 
         <!-- Right Side -->
-        <div class="register-right-side bg-white d-flex align-items-center justify-content-center mt-5" style="flex: 2;">
+        <div class="register-right-side bg-white d-flex align-items-center justify-content-center mt-5"
+            style="flex: 2;">
+
+            <!-- Back Link Positioned at the Top-Right -->
+            <div class="position-absolute top-0 end-0 mt-3 me-3">
+                <a asp-controller="Home" asp-action="Index" class="text-decoration-none btn btn-link bi bi-chevron-left"
+                    style="font-size: 2rem; transition: transform 0.3s; display: inline-block;"
+                    onmouseover="this.style.transform='scale(1.5)';" onmouseout="this.style.transform='scale(1)';"></a>
+            </div>
+
             <div class="register-account-container text-center" style="max-width: 600px;">
                 <img src="/images/buddle_logo.svg" alt="Logo" class="mb-4" style="width: 100px;" />
                 <h2 class="mb-4">Create a Buddle Account!</h2>
@@ -24,13 +34,15 @@
                     <!-- Row 1: First Name and Last Name -->
                     <div class="row mb-3">
                         <div class="col-md-6 mb-2">
-                            <input asp-for="FirstName" class="form-control" placeholder="First Name" style="height: 50px; font-size: 1.1rem;" />
+                            <input asp-for="FirstName" class="form-control" placeholder="First Name"
+                                style="height: 50px; font-size: 1.1rem;" />
                             <div class="d-flex align-items-start me-0">
                                 <span asp-validation-for="FirstName" class="text-danger"></span>
                             </div>
                         </div>
                         <div class="col-md-6">
-                            <input asp-for="LastName" class="form-control" placeholder="Last Name" style="height: 50px; font-size: 1.1rem;" />
+                            <input asp-for="LastName" class="form-control" placeholder="Last Name"
+                                style="height: 50px; font-size: 1.1rem;" />
                             <div class="d-flex align-items-start me-0">
                                 <span asp-validation-for="LastName" class="text-danger"></span>
                             </div>
@@ -40,7 +52,8 @@
                     <!-- Row 2: Email -->
                     <div class="row mb-3">
                         <div class="col-12 mb-2">
-                            <input asp-for="Email" class="form-control" placeholder="Email" style="height: 50px; font-size: 1.1rem;" />
+                            <input asp-for="Email" class="form-control" placeholder="Email"
+                                style="height: 50px; font-size: 1.1rem;" />
                             <div class="d-flex align-items-start me-0">
                                 <span asp-validation-for="Email" class="text-danger"></span>
                             </div>
@@ -50,13 +63,15 @@
                     <!-- Row 3: Password and Confirm Password -->
                     <div class="row mb-3">
                         <div class="col-md-6">
-                            <input asp-for="Password" class="form-control" placeholder="Password" style="height: 50px; font-size: 1.1rem;" />
+                            <input asp-for="Password" class="form-control" placeholder="Password"
+                                style="height: 50px; font-size: 1.1rem;" />
                             <div class="d-flex align-items-start me-0">
                                 <span asp-validation-for="Password" class="text-danger"></span>
                             </div>
                         </div>
                         <div class="col-md-6">
-                            <input asp-for="ConfirmPassword" class="form-control" placeholder="Confirm Password" style="height: 50px; font-size: 1.1rem;" />
+                            <input asp-for="ConfirmPassword" class="form-control" placeholder="Confirm Password"
+                                style="height: 50px; font-size: 1.1rem;" />
                             <div class="d-flex align-items-start me-0">
                                 <span asp-validation-for="ConfirmPassword" class="text-danger"></span>
                             </div>
@@ -66,8 +81,9 @@
                     <!-- Row 4: Register Button and Social Buttons -->
                     <div class="row mb-3">
                         <div class="col-12 col-md-8 mb-2">
-                            <button type="submit" class="register-btn btn btn-primary w-100 mb-3" style="height: 50px; font-size: 1.1rem;">
-                                <i class="bi bi-person-plus"></i> Register
+                            <button type="submit" class="btn btn-primary w-100 mb-3"
+                                style="height: 50px; font-size: 1.1rem;">
+                                <i class="bi bi-box-arrow-in-right"></i> Register
                             </button>
                         </div>
                         <div class="col-6 col-md-2 mb-2">
@@ -84,7 +100,8 @@
 
                     <div class="row mb-3">
                         <div class="col-12">
-                            <p>Already have an account? <a asp-controller="Account" asp-action="Login" class="text-decoration-none">Login</a></p>
+                            <p>Already have an account? <a asp-controller="Account" asp-action="Login"
+                                    class="text-decoration-none">Login</a></p>
                         </div>
                     </div>
                 </form>

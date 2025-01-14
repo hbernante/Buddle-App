@@ -1,11 +1,12 @@
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using Microsoft.AspNetCore.Http;
 
 namespace Buddle.Models.ViewModels
 {
     public class HobbyViewModel
-    {   
+    {
         public string Email { get; set; }
 
         // Birthday
@@ -35,5 +36,11 @@ namespace Buddle.Models.ViewModels
         [Range(-180.0, 180.0, ErrorMessage = "Longitude must be between -180 and 180 degrees.")]
         [Display(Name = "Longitude")]
         public double Longitude { get; set; }
+
+        // New property for profile image upload
+        [Display(Name = "Profile Image")]
+        public IFormFile ProfileImage { get; set; }
+
+        public string ProfileImagePreviewPath { get; set; } = "/images/sphere.png";
     }
 }

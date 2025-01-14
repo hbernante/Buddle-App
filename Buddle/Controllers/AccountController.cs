@@ -2,223 +2,254 @@ using Buddle.Models;
 using Buddle.Models.ViewModels;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
+using System.IO;
+using System.Threading.Tasks;
 
-namespace Buddle.Controllers;
-
-public class AccountController : Controller
+namespace Buddle.Controllers
 {
-
-    private readonly SignInManager<User> signInManager;
-    private readonly UserManager<User> userManager;
-
-    public AccountController(SignInManager<User> signInManager, UserManager<User> userManager)
+    public class AccountController : Controller
     {
-        this.signInManager = signInManager;
-        this.userManager = userManager;
-    }
+        private readonly SignInManager<User> signInManager;
+        private readonly UserManager<User> userManager;
+        private readonly IWebHostEnvironment webHostEnvironment;
 
-    public IActionResult Login()
-    {
-        return View();
-    }
-
-    [HttpPost]
-    public async Task<IActionResult> Login(LoginViewModel model)
-    {
-        if (ModelState.IsValid)
+        public AccountController(SignInManager<User> signInManager, UserManager<User> userManager, IWebHostEnvironment webHostEnvironment)
         {
-            var result = await signInManager.PasswordSignInAsync(model.Email, model.Password, model.RememberMe, false);
+            this.signInManager = signInManager;
+            this.userManager = userManager;
+            this.webHostEnvironment = webHostEnvironment;
+        }
 
-            if (result.Succeeded)
+        public IActionResult Login()
+        {
+            if (signInManager.IsSignedIn(User))
             {
                 return RedirectToAction("Index", "Home");
             }
-            else
-            {
-                ModelState.AddModelError("", "Email or password is incorrect.");
-                return View(model);
-            }
-        }
-        return View(model);
-    }
 
-    public IActionResult Register()
-    {
-        return View();
-    }
-
-    [HttpPost]
-    public async Task<IActionResult> Register(RegisterViewModel model)
-    {
-        if (ModelState.IsValid)
-        {
-            User users = new User
-            {
-                FullName = model.FirstName + " " + model.LastName,
-                UserName = model.Email,
-                Email = model.Email
-            };
-
-            var result = await userManager.CreateAsync(users, model.Password);
-
-            if (result.Succeeded)
-            {
-                // Redirect to the Hobby page to collect additional information
-                return RedirectToAction("Hobby", new { email = model.Email });
-            }
-            else
-            {
-                foreach (var error in result.Errors)
-                {
-                    ModelState.AddModelError("", error.Description);
-                }
-            }
-        }
-        return View();
-    }
-
-    // GET: Hobby
-    public IActionResult Hobby(string email)
-    {
-        if (string.IsNullOrEmpty(email))
-        {
-            return RedirectToAction("Register", "Account");
+            return View();
         }
 
-        var user = userManager.Users.FirstOrDefault(u => u.Email == email);
-        if (user != null)
+        [HttpPost]
+        public async Task<IActionResult> Login(LoginViewModel model)
         {
-            var hobbyModel = new HobbyViewModel
+            if (ModelState.IsValid)
             {
-                Email = user.Email,
-            };
-            return View(hobbyModel);
-        }
-
-        return RedirectToAction("Register", "Account");
-    }
-
-    // POST: Hobby
-    [HttpPost]
-    public async Task<IActionResult> Hobby(HobbyViewModel model)
-    {
-        if (ModelState.IsValid)
-        {
-            var user = await userManager.FindByEmailAsync(model.Email);
-            if (user != null)
-            {
-                // Update user fields
-                user.Birthday = model.Birthday;
-                user.Gender = model.Gender;
-                user.Hobbies = model.Hobbies != null ? string.Join(", ", model.Hobbies) : null;
-                user.Latitude = model.Latitude;
-                user.Longitude = model.Longitude;
-
-                // Save changes to the database
-                var result = await userManager.UpdateAsync(user);
+                var result = await signInManager.PasswordSignInAsync(model.Email, model.Password, model.RememberMe, false);
 
                 if (result.Succeeded)
                 {
-                    // Automatically sign in the user after updating the profile
-                    await signInManager.SignInAsync(user, isPersistent: false);
-
-                    // Redirect to the home page
                     return RedirectToAction("Index", "Home");
                 }
                 else
                 {
-                    foreach (var error in result.Errors)
-                    {
-                        ModelState.AddModelError("", error.Description);
-                    }
+                    ModelState.AddModelError("", "Email or password is incorrect.");
+                    return View(model);
                 }
             }
-            else
-            {
-                ModelState.AddModelError("", "User not found.");
-            }
+            return View(model);
         }
 
-        // Return to the view with the same model (including email) on validation failure
-        return View(model);
-    }
-
-    public IActionResult VerifyEmail()
-    {
-        return View();
-    }
-
-    [HttpPost]
-    public async Task<IActionResult> VerifyEmail(VerifyEmailViewModel model)
-    {
-        if (ModelState.IsValid)
+        public IActionResult Register()
         {
-            var user = await userManager.FindByNameAsync(model.Email);
-
-            if (user == null)
+            if (signInManager.IsSignedIn(User))
             {
-                ModelState.AddModelError("", "Something is wrong!");
-                return View(model);
+                return RedirectToAction("Index", "Home");
             }
-            else
-            {
-                return RedirectToAction("ChangePassword", "Account", new { username = user.UserName });
-            }
-        }
-        return View(model);
-    }
 
-    public IActionResult ChangePassword(string username)
-    {
-        if (string.IsNullOrEmpty(username))
-        {
-            return RedirectToAction("VerifyEmail", "Account");
+            return View();
         }
-        return View(new ChangePasswordViewModel { Email = username });
-    }
 
-    [HttpPost]
-    public async Task<IActionResult> ChangePassword(ChangePasswordViewModel model)
-    {
-        if (ModelState.IsValid)
+        [HttpPost]
+        public async Task<IActionResult> Register(RegisterViewModel model)
         {
-            var user = await userManager.FindByNameAsync(model.Email);
-            if (user != null)
+            if (ModelState.IsValid)
             {
-                var result = await userManager.RemovePasswordAsync(user);
+                User users = new User
+                {
+                    FullName = model.FirstName + " " + model.LastName,
+                    UserName = model.Email,
+                    Email = model.Email,
+                    ProfileImagePath = "/images/default-profile.png"
+                };
+
+                var result = await userManager.CreateAsync(users, model.Password);
+
                 if (result.Succeeded)
                 {
-                    result = await userManager.AddPasswordAsync(user, model.NewPassword);
-                    return RedirectToAction("Login", "Account");
+                    // Redirect to the Hobby page to collect additional information
+                    return RedirectToAction("Hobby", new { email = model.Email });
                 }
                 else
                 {
-
                     foreach (var error in result.Errors)
                     {
                         ModelState.AddModelError("", error.Description);
                     }
+                }
+            }
+            return View();
+        }
 
+        // GET: Hobby
+        public IActionResult Hobby(string email)
+        {
+            if (string.IsNullOrEmpty(email))
+            {
+                return RedirectToAction("Register", "Account");
+            }
+
+            var user = userManager.Users.FirstOrDefault(u => u.Email == email);
+            if (user != null)
+            {
+                var hobbyModel = new HobbyViewModel
+                {
+                    Email = user.Email,
+                };
+                return View(hobbyModel);
+            }
+
+            return RedirectToAction("Register", "Account");
+        }
+
+        // POST: Hobby
+        [HttpPost]
+        public async Task<IActionResult> Hobby(HobbyViewModel model)
+        {
+            if (ModelState.IsValid)
+            {
+                var user = await userManager.FindByEmailAsync(model.Email);
+                if (user != null)
+                {
+                    // Update user fields
+                    user.Birthday = model.Birthday;
+                    user.Gender = model.Gender;
+                    user.Hobbies = model.Hobbies != null ? string.Join(", ", model.Hobbies) : null;
+                    user.Latitude = model.Latitude;
+                    user.Longitude = model.Longitude;
+
+                    // Process the profile image upload
+                    if (model.ProfileImage != null)
+                    {
+                        string uploadsFolder = Path.Combine(webHostEnvironment.WebRootPath, "uploads");
+                        Directory.CreateDirectory(uploadsFolder); // Ensure the directory exists
+                        string uniqueFileName = Guid.NewGuid().ToString() + "_" + model.ProfileImage.FileName;
+                        string filePath = Path.Combine(uploadsFolder, uniqueFileName);
+
+                        // Save the file to the server
+                        using (var fileStream = new FileStream(filePath, FileMode.Create))
+                        {
+                            await model.ProfileImage.CopyToAsync(fileStream);
+                        }
+
+                        // Store the relative file path in the user model
+                        user.ProfileImagePath = "/uploads/" + uniqueFileName;
+                    }
+
+                    // Save changes to the database
+                    var result = await userManager.UpdateAsync(user);
+
+                    if (result.Succeeded)
+                    {
+                        // Automatically sign in the user after updating the profile
+                        await signInManager.SignInAsync(user, isPersistent: false);
+
+                        // Redirect to the home page
+                        return RedirectToAction("Index", "Home");
+                    }
+                    else
+                    {
+                        foreach (var error in result.Errors)
+                        {
+                            ModelState.AddModelError("", error.Description);
+                        }
+                    }
+                }
+                else
+                {
+                    ModelState.AddModelError("", "User not found.");
+                }
+            }
+
+            // Return to the view with the same model (including email) on validation failure
+            return View(model);
+        }
+
+        public IActionResult VerifyEmail()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> VerifyEmail(VerifyEmailViewModel model)
+        {
+            if (ModelState.IsValid)
+            {
+                var user = await userManager.FindByNameAsync(model.Email);
+
+                if (user == null)
+                {
+                    ModelState.AddModelError("", "Something is wrong!");
+                    return View(model);
+                }
+                else
+                {
+                    return RedirectToAction("ChangePassword", "Account", new { username = user.UserName });
+                }
+            }
+            return View(model);
+        }
+
+        public IActionResult ChangePassword(string username)
+        {
+            if (string.IsNullOrEmpty(username))
+            {
+                return RedirectToAction("VerifyEmail", "Account");
+            }
+            return View(new ChangePasswordViewModel { Email = username });
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> ChangePassword(ChangePasswordViewModel model)
+        {
+            if (ModelState.IsValid)
+            {
+                var user = await userManager.FindByNameAsync(model.Email);
+                if (user != null)
+                {
+                    var result = await userManager.RemovePasswordAsync(user);
+                    if (result.Succeeded)
+                    {
+                        result = await userManager.AddPasswordAsync(user, model.NewPassword);
+                        return RedirectToAction("Login", "Account");
+                    }
+                    else
+                    {
+                        foreach (var error in result.Errors)
+                        {
+                            ModelState.AddModelError("", error.Description);
+                        }
+
+                        return View(model);
+                    }
+                }
+                else
+                {
+                    ModelState.AddModelError("", "Email not found!");
                     return View(model);
                 }
             }
             else
             {
-                ModelState.AddModelError("", "Email not found!");
+                ModelState.AddModelError("", "Something went wrong. try again.");
                 return View(model);
             }
         }
-        else
+
+        public async Task<IActionResult> Logout()
         {
-            ModelState.AddModelError("", "Something went wrong. try again.");
-            return View(model);
+            await signInManager.SignOutAsync();
+            return RedirectToAction("Index", "Home");
         }
     }
-
-    public async Task<IActionResult> Logout()
-    {
-        await signInManager.SignOutAsync();
-        return RedirectToAction("Index", "Home");
-    }
 }
-

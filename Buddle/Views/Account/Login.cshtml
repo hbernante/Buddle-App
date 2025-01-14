@@ -14,7 +14,16 @@
         </div>
 
         <!-- Right Side -->
-        <div class="right-side bg-white d-flex align-items-center justify-content-center mt-5" style="flex: 2;">
+        <div class="right-side bg-white d-flex align-items-center justify-content-center mt-5"
+            style="flex: 2; position: relative;">
+
+            <!-- Back Link Positioned at the Top-Right -->
+            <div class="position-absolute top-0 end-0 mt-3 me-3">
+                <a asp-controller="Home" asp-action="Index" class="text-decoration-none btn btn-link bi bi-chevron-left"
+                    style="font-size: 2rem; transition: transform 0.3s; display: inline-block;"
+                    onmouseover="this.style.transform='scale(1.5)';" onmouseout="this.style.transform='scale(1)';"></a>
+            </div>
+
             <div class="account-container text-center" style="max-width: 500px;">
                 <img src="/images/buddle_logo.svg" alt="Logo" class="mb-4" style="width: 100px;" />
                 <h2 class="mb-4">Be part of the community.</h2>
@@ -84,7 +93,7 @@
         </div>
     </div>
 </div>
-</div>
+
 
 @section Scripts {
     @{
