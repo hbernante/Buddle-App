@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("Buddle")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+14248cb55967fffb56ba4f3b392a13ff2491184a")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+d12ad70d3e8b282751ea50990c8e0fcbc1eb0535")]
 [assembly: System.Reflection.AssemblyProductAttribute("Buddle")]
 [assembly: System.Reflection.AssemblyTitleAttribute("Buddle")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

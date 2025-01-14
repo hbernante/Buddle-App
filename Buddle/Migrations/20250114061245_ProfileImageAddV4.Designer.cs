@@ -4,6 +4,7 @@ using Buddle.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Buddle.Migrations
 {
     [DbContext(typeof(BuddleDbContext))]
-    partial class BuddleDbContextModelSnapshot : ModelSnapshot
+    [Migration("20250114061245_ProfileImageAddV4")]
+    partial class ProfileImageAddV4
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -85,7 +88,7 @@ namespace Buddle.Migrations
                     b.Property<bool>("PhoneNumberConfirmed")
                         .HasColumnType("bit");
 
-                    b.Property<byte[]>("ProfileImage")
+                    b.Property<byte[]>("ProfileImageData")
                         .HasColumnType("varbinary(max)");
 
                     b.Property<string>("SecurityStamp")

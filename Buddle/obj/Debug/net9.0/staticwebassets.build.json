@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "RUYqimbIZJvuQzg2gre0jpM+H1B6Nr9R0pJCPmAE+wM=",
+  "Hash": "qgXdAr4oX3JQkSd4z5SXNs/NXqvRAmlGH+b1x5cQDzw=",
   "Source": "Buddle",
   "BasePath": "_content/Buddle",
   "Mode": "Default",
@@ -2955,6 +2955,27 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\lib\\jquery\\LICENSE.txt"
+    },
+    {
+      "Identity": "C:\\Users\\HanzelBernante\\Desktop\\ASP_BUDDLE\\Buddle-App\\Buddle\\wwwroot\\uploads\\560cf3aa-ac45-4940-982d-ba1979a38087_empty_profile.png",
+      "SourceId": "Buddle",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\HanzelBernante\\Desktop\\ASP_BUDDLE\\Buddle-App\\Buddle\\wwwroot\\",
+      "BasePath": "_content/Buddle",
+      "RelativePath": "uploads/560cf3aa-ac45-4940-982d-ba1979a38087_empty_profile#[.{fingerprint}]?.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "dhwayigt8w",
+      "Integrity": "8eykkN1qQDsatBhEie89sofMgXeL8ETjq/uMINDZTuw=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\uploads\\560cf3aa-ac45-4940-982d-ba1979a38087_empty_profile.png"
     }
   ],
   "Endpoints": [
@@ -23681,6 +23702,88 @@
         {
           "Name": "integrity",
           "Value": "sha256-JKWeHUaANNuffeRatdc54UCb84RoxjEw/nTq8Mops8Y="
+        }
+      ]
+    },
+    {
+      "Route": "uploads/560cf3aa-ac45-4940-982d-ba1979a38087_empty_profile.dhwayigt8w.png",
+      "AssetFile": "C:\\Users\\HanzelBernante\\Desktop\\ASP_BUDDLE\\Buddle-App\\Buddle\\wwwroot\\uploads\\560cf3aa-ac45-4940-982d-ba1979a38087_empty_profile.png",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "17717"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/png"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"8eykkN1qQDsatBhEie89sofMgXeL8ETjq/uMINDZTuw=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Tue, 14 Jan 2025 05:54:41 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "dhwayigt8w"
+        },
+        {
+          "Name": "label",
+          "Value": "uploads/560cf3aa-ac45-4940-982d-ba1979a38087_empty_profile.png"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-8eykkN1qQDsatBhEie89sofMgXeL8ETjq/uMINDZTuw="
+        }
+      ]
+    },
+    {
+      "Route": "uploads/560cf3aa-ac45-4940-982d-ba1979a38087_empty_profile.png",
+      "AssetFile": "C:\\Users\\HanzelBernante\\Desktop\\ASP_BUDDLE\\Buddle-App\\Buddle\\wwwroot\\uploads\\560cf3aa-ac45-4940-982d-ba1979a38087_empty_profile.png",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "17717"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/png"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"8eykkN1qQDsatBhEie89sofMgXeL8ETjq/uMINDZTuw=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Tue, 14 Jan 2025 05:54:41 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=3600, must-revalidate"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-8eykkN1qQDsatBhEie89sofMgXeL8ETjq/uMINDZTuw="
         }
       ]
     }

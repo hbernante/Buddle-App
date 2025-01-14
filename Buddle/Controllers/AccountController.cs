@@ -70,7 +70,6 @@ namespace Buddle.Controllers
                     FullName = model.FirstName + " " + model.LastName,
                     UserName = model.Email,
                     Email = model.Email,
-                    ProfileImagePath = "/images/default-profile.png"
                 };
 
                 var result = await userManager.CreateAsync(users, model.Password);
@@ -121,30 +120,31 @@ namespace Buddle.Controllers
                 var user = await userManager.FindByEmailAsync(model.Email);
                 if (user != null)
                 {
+                    // Handle profile image upload
+                    if (model.ProfileImage != null && model.ProfileImage.Length > 0)
+                    {
+                        // Check if the file is an image by looking at its content type
+                        var allowedContentTypes = new[] { "image/jpeg", "image/png", "image/gif", "image/bmp", "image/webp" };
+                        if (!allowedContentTypes.Contains(model.ProfileImage.ContentType))
+                        {
+                            ModelState.AddModelError("ProfileImage", "Only image files (JPG, PNG, GIF, BMP, WebP) are allowed.");
+                            return View(model);
+                        }
+
+                        // Convert the uploaded file to a byte array
+                        using (var memoryStream = new MemoryStream())
+                        {
+                            await model.ProfileImage.CopyToAsync(memoryStream);
+                            user.ProfileImage = memoryStream.ToArray();
+                        }
+                    }
+
                     // Update user fields
                     user.Birthday = model.Birthday;
                     user.Gender = model.Gender;
                     user.Hobbies = model.Hobbies != null ? string.Join(", ", model.Hobbies) : null;
                     user.Latitude = model.Latitude;
                     user.Longitude = model.Longitude;
-
-                    // Process the profile image upload
-                    if (model.ProfileImage != null)
-                    {
-                        string uploadsFolder = Path.Combine(webHostEnvironment.WebRootPath, "uploads");
-                        Directory.CreateDirectory(uploadsFolder); // Ensure the directory exists
-                        string uniqueFileName = Guid.NewGuid().ToString() + "_" + model.ProfileImage.FileName;
-                        string filePath = Path.Combine(uploadsFolder, uniqueFileName);
-
-                        // Save the file to the server
-                        using (var fileStream = new FileStream(filePath, FileMode.Create))
-                        {
-                            await model.ProfileImage.CopyToAsync(fileStream);
-                        }
-
-                        // Store the relative file path in the user model
-                        user.ProfileImagePath = "/uploads/" + uniqueFileName;
-                    }
 
                     // Save changes to the database
                     var result = await userManager.UpdateAsync(user);

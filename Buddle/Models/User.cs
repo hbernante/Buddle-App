@@ -15,7 +15,7 @@ namespace Buddle.Models
 
         public double Longitude { get; set; }
 
-        // New property to store the profile image path
-        public string ProfileImagePath { get; set; }
+        // Add this property for storing raw image data
+        public byte[]? ProfileImage { get; set; } // Renamed property
     }
 }

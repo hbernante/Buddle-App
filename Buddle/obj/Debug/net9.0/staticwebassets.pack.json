@@ -281,6 +281,10 @@
       "PackagePath": "staticwebassets\\lib\\jquery\\dist\\jquery.slim.min.map"
     },
     {
+      "Id": "C:\\Users\\HanzelBernante\\Desktop\\ASP_BUDDLE\\Buddle-App\\Buddle\\wwwroot\\uploads\\560cf3aa-ac45-4940-982d-ba1979a38087_empty_profile.png",
+      "PackagePath": "staticwebassets\\uploads\\560cf3aa-ac45-4940-982d-ba1979a38087_empty_profile.png"
+    },
+    {
       "Id": "obj\\Debug\\net9.0\\staticwebassets\\msbuild.Buddle.Microsoft.AspNetCore.StaticWebAssetEndpoints.props",
       "PackagePath": "build\\Microsoft.AspNetCore.StaticWebAssetEndpoints.props"
     },

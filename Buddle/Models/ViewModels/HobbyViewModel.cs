@@ -41,6 +41,8 @@ namespace Buddle.Models.ViewModels
         [Display(Name = "Profile Image")]
         public IFormFile ProfileImage { get; set; }
 
-        public string ProfileImagePreviewPath { get; set; } = "/images/sphere.png";
+         // Profile Image Base64 for preview
+        [Display(Name = "Profile Image Preview")]
+        public string ProfileImageBase64 { get; set; } = "/images/default-profile.png"; // Default placeholder
     }
 }

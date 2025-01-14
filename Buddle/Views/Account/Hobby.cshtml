@@ -25,7 +25,7 @@
                 <div asp-validation-summary="ModelOnly" class="text-danger"></div>
 
                 <!-- Welcome Message -->
-                <h5 class="mb-3">Hello [@Model.Email]</h5>
+                <h5 class="mb-3">Hello @Model.Email</h5>
 
                 <!-- Birthday and Gender -->
                 <div class="mb-3">
@@ -79,7 +79,9 @@
             <!-- Right Profile Image -->
             <div class="w-50 ps-4 text-center">
                 <div class="position-relative" style="width: 200px; height: 200px; margin: auto;">
-                    <img src="@Model.ProfileImagePreviewPath ?? "/images/sphere.png"" alt="Profile Image" class="img-fluid rounded-circle border"
+                    <!-- Display Image from Base64 -->
+                    <img src="@("data:image/png;base64," + Model.ProfileImageBase64 ?? "/images/sphere.png")"
+                        alt="Profile Image" class="img-fluid rounded-circle border"
                         style="width: 100%; height: 100%; object-fit: cover;" id="profileImagePreview" />
                     <div class="mt-2">
                         <label for="profileImageUpload" class="btn btn-outline-primary btn-sm">Upload Image</label>
